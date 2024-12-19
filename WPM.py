@@ -8,21 +8,21 @@ import requests
 def fetch_text_from_api():
 #Fetch random text from an API.
     try:
-        # Using a random quotes API as an example
+        # random quotes API 
         response = requests.get("https://api.quotable.io/random")
         response.raise_for_status()
         data = response.json()
         return data["content"]
     except requests.RequestException:
-        # Fallback text if API fails
-        return "The quick brown fox jumps over the lazy dog."
+        # if API fails
+        return "The quick brown fox jumps over the lazy dog and he fall on the dog."
 
 
 def start_screen(stdscr):
 #Displays the welcome screen.
     stdscr.clear()
     stdscr.addstr("Welcome to the Speed Typing Test!", curses.color_pair(3))
-    stdscr.addstr("\n\nInstructions:")
+    stdscr.addstr("\nInstructions:")
     stdscr.addstr("\n- Type the displayed text as fast as you can.")
     stdscr.addstr("\n- Use Backspace to correct mistakes.")
     stdscr.addstr("\n- Press Esc to exit at any time.")
@@ -32,11 +32,11 @@ def start_screen(stdscr):
 
 
 def display_text(stdscr, target, current, wpm=0):
-#Displays the target text, current text, and WPM dynamically
+#Displays target text, current text
     stdscr.addstr(0, 0, f"Speed Typing Test - WPM: {wpm}", curses.color_pair(3))
     stdscr.addstr("\n\n", curses.color_pair(3))
 
-    # Display the target text
+    # Disp target text
     for i, char in enumerate(target):
         color = curses.color_pair(3)
         if i < len(current):
@@ -46,13 +46,13 @@ def display_text(stdscr, target, current, wpm=0):
                 color = curses.color_pair(2)  
         stdscr.addstr(char, color)
 
-    # Show the current input below
+    # current input below
     stdscr.addstr("\n\nYour input:\n", curses.color_pair(3))
     stdscr.addstr("".join(current), curses.color_pair(1))
 
 
 def wpm_test(stdscr):
-    #Main typing test logic
+    #Main typing test
     target_text = fetch_text_from_api()
     current_text = []
     wpm = 0
