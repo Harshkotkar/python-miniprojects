@@ -6,7 +6,7 @@ import requests
 
 
 def fetch_text_from_api():
-    """Fetch random text from an API."""
+#Fetch random text from an API.
     try:
         # Using a random quotes API as an example
         response = requests.get("https://api.quotable.io/random")
@@ -19,7 +19,7 @@ def fetch_text_from_api():
 
 
 def start_screen(stdscr):
-    """Displays the welcome screen."""
+#Displays the welcome screen.
     stdscr.clear()
     stdscr.addstr("Welcome to the Speed Typing Test!", curses.color_pair(3))
     stdscr.addstr("\n\nInstructions:")
@@ -32,7 +32,7 @@ def start_screen(stdscr):
 
 
 def display_text(stdscr, target, current, wpm=0):
-    """Displays the target text, current text, and WPM dynamically."""
+#Displays the target text, current text, and WPM dynamically
     stdscr.addstr(0, 0, f"Speed Typing Test - WPM: {wpm}", curses.color_pair(3))
     stdscr.addstr("\n\n", curses.color_pair(3))
 
@@ -41,9 +41,9 @@ def display_text(stdscr, target, current, wpm=0):
         color = curses.color_pair(3)
         if i < len(current):
             if current[i] == char:
-                color = curses.color_pair(1)  # Correct character
+                color = curses.color_pair(1)  
             else:
-                color = curses.color_pair(2)  # Incorrect character
+                color = curses.color_pair(2)  
         stdscr.addstr(char, color)
 
     # Show the current input below
@@ -52,7 +52,7 @@ def display_text(stdscr, target, current, wpm=0):
 
 
 def wpm_test(stdscr):
-    """Main typing test logic."""
+    #Main typing test logic
     target_text = fetch_text_from_api()
     current_text = []
     wpm = 0
@@ -79,7 +79,7 @@ def wpm_test(stdscr):
         except:
             continue
 
-        if ord(key) == 27:  # Esc key to exit
+        if ord(key) == 27:  # Esc
             return False
 
         if key in ("KEY_BACKSPACE", '\b', "\x7f"):
@@ -94,9 +94,9 @@ def wpm_test(stdscr):
 def main(stdscr):
     """Main function to initialize the curses application."""
     # Initialize color pairs
-    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)  # Correct input
-    curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)  # Incorrect input
-    curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_BLACK)  # Neutral text
+    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)  
+    curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)  
+    curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_BLACK)  
 
     start_screen(stdscr)
     while True:
@@ -109,7 +109,7 @@ def main(stdscr):
         stdscr.addstr("\nPress any key to retry or Esc to exit.", curses.color_pair(3))
         key = stdscr.getkey()
 
-        if ord(key) == 27:  # Exit on Esc key
+        if ord(key) == 27:  # Exit 
             break
 
 
