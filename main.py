@@ -10,7 +10,6 @@ def guess_number():
         print("3. Hard (Range: 1-100, 5 guesses 😥)")
         print("4. Exit the game 🚪")
 
-        # Select difficulty level
         while True:
             try:
                 difficulty = int(input("Enter the difficulty level (1/2/3/4): "))
