@@ -99,5 +99,5 @@ def guess_number():
             print("Thanks for playing! Goodbye! 👋")
             break
 
-# Run the game
+
 guess_number()
