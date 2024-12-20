@@ -50,7 +50,6 @@ def guess_number():
         if max_attempts != float('inf'):
             print(f"You have {max_attempts} attempts. Good luck! 🍀")
 
-        # Start the guessing loop
         while attempts < max_attempts:
             user_input = input(f"Attempt {attempts + 1}/{max_attempts}: Enter your guess (or type 'quit' to exit): ").strip().lower()
 
@@ -64,8 +63,6 @@ def guess_number():
 
             guess = int(user_input)
             attempts += 1
-
-            # Check the guess
             if guess < rnd_number:
                 print("Too low! Try again.")
             elif guess > rnd_number:
@@ -76,7 +73,7 @@ def guess_number():
                 print(f"\nCongratulations🎉 You guessed the correct number {rnd_number} in {attempts} attempts and {total_time} seconds! 🕒")
                 break
 
-            # Provide hints if enabled
+            #hints 
             if allow_hints and attempts < max_attempts:
                 hint_request = input("Do you want a hint? (yes/no): ").strip().lower()
                 if hint_request == 'yes':
@@ -90,10 +87,8 @@ def guess_number():
                     print(hint)
 
         else:
-            # If the user runs out of attempts
+         
             print(f"\nOut of attempts! The correct number was {rnd_number}. Better luck next time! 😢")
-
-        # Ask if the user wants to play again
         while True:
             retry = input("\nDo you want to play again? (yes/no): ").strip().lower()
             if retry in ['yes', 'no']:
