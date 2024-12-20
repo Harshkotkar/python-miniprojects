@@ -24,7 +24,6 @@ def guess_number():
             print("Thanks for playing! See you soon.... 👋")
             return
 
-        # Set difficulty parameters
         if difficulty == 1:
             max_num = 10
             max_attempts = float('inf')  # Unlimited attempts
