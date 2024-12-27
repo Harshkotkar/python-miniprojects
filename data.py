@@ -1,7 +1,7 @@
 import pandas as pd
 import csv
 from datetime import datetime
-
+eeeee
 class CSV:
     csv_file='finance_data.csv'
     @classmethod
