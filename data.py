@@ -1,6 +1,5 @@
 import pandas as pd
 import csv
-gggg
 from datetime import datetime
 class CSV:
     csv_file='finance_data.csv'
