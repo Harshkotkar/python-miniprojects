@@ -1,4 +1,4 @@
-hhhh
+
 from tkinter import *
 import random
 
