@@ -1,4 +1,4 @@
-
+dsss
 from tkinter import *
 import random
 
